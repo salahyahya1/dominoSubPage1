@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دومينو - اشترك ويانه</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Cairo", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(to bottom right, #fef1e6, #f9d3b4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        padding: 1rem;
+        direction: rtl;
+      }
+
+      .container {
+        background-color: #fff;
+        border: 2px dashed #c84b31;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+      }
+
+      h1 {
+        color: #c84b31;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #444;
+        margin-bottom: 1.5rem;
+      }
+
+      input[type="tel"] {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: 2px solid #c84b31;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+
+      button {
+        background-color: #c84b31;
+        color: #fff;
+        border: none;
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background-color: #a63a27;
+      }
+
+      .terms {
+        font-size: 0.8rem;
+        color: #555;
+        margin-top: 1rem;
+        line-height: 1.6;
+      }
+
+      .terms a {
+        color: #c84b31;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>لعبتك المفضلة دومينو!</h1>
+      <p>بدك تلعب دومينو؟ حط رقمك وخلينا نبعتلك الكود!</p>
+      <form onsubmit="handleSubmit(event)">
+        <input
+          type="tel"
+          id="phone"
+          placeholder="مثال: 07812345678"
+          pattern="07[0-9]{9}"
+          required
+        />
+        <button type="submit">خل نبدي اللعب!</button>
+      </form>
+      <div class="terms">
+        باستخدامك هالخدمة، انت توافق على
+        <a href="#">الشروط والأحكام</a> وسياسة الخصوصية. <br />
+        سعر الرسالة حسب تعرفة مزود الخدمة.
+      </div>
+    </div>
+
+    <script>
+      function handleSubmit(e) {
+        e.preventDefault();
+        const phone = document.getElementById("phone").value;
+        if (phone.match(/^07[0-9]{9}$/)) {
+          alert("تم إرسال الكود على رقمك!");
+          // هنا تقدر تنقل للصفحة الثانية للـ OTP
+          // window.location.href = "otp.html";
+        } else {
+          alert("رجاءً دخل رقم صحيح يبدي بـ 07 ويحتوي 11 رقم.");
+        }
+      }
+    </script>
+  </body>
+</html>
