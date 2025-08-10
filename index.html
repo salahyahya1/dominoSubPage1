@@ -39,21 +39,107 @@
         font-size: 2rem;
       }
 
-      p {
+      h2 {
         font-size: 1.1rem;
         color: #444;
         margin-bottom: 1.5rem;
       }
 
-      input[type="tel"] {
-        width: 100%;
-        padding: 0.8rem;
-        font-size: 1rem;
-        border: 2px solid #c84b31;
-        border-radius: 8px;
-        margin-bottom: 1rem;
+      p {
+        font-size: 0.7rem;
       }
 
+      .phone-input ,.otp-input{
+        background-color: #f1f1f1;
+        direction: ltr;
+        border: 2px solid #ff9800 !important;
+        border-radius: 12px;
+      }
+
+      .phone-input input::-webkit-input-placeholder,.otp-input  input::-webkit-input-placeholder{
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .phone-input input::-moz-placeholder ,.otp-input  input::-moz-placeholder{
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .phone-input input:-ms-input-placeholder, .otp-input input:-ms-input-placeholder {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .phone-input input::-ms-input-placeholder , .otp-input input::-ms-input-placeholder{
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .phone-input input::placeholder ,.otp-input input::placeholder {
+        font-size: 18px;
+        text-align: center;
+      }
+      .phone-input ,.otp-input{
+        display: flex;
+        margin: auto;
+        overflow: hidden;
+        border: 1px solid #dbdbdb;
+        align-items: center;
+      }
+
+      .phone-input * ,.otp-input *{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+      }
+
+      .phone-input .flag {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .phone-input .country-code {
+        color: #acacac;
+        margin-left: 0.5em;
+      }
+
+      .phone-input input.text-input  ,.otp-input input.text-input   {
+        flex: 1;
+        min-width: 0;
+        background-color: #f1f1f1;
+        margin-left: 0.5em;
+        margin-right: 2px;
+        border: 0;
+        outline: none;
+      }
+
+      .phone-input .checkmark-container , .otp-input .checkmark-container {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .phone-input .checkmark-container img,.otp-input .checkmark-container img {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+      }
+
+      .phone-input .checkmark-container ,.otp-input .checkmark-container {
+        margin-right: 10px;
+      }
+      .phone-input *,.otp-input * {
+        font-size: 20px;
+      }
+      .otp-input{
+        width: 100%;
+      }
       button {
         background-color: #c84b31;
         color: #fff;
@@ -63,17 +149,40 @@
         border-radius: 8px;
         cursor: pointer;
         width: 100%;
+        margin-top: 1.5rem;
         transition: background 0.3s;
       }
 
-      button:hover {
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      button:hover:not(:disabled) {
         background-color: #a63a27;
       }
 
+      #checkmark-container {
+        display: none;
+        color: green;
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      #loader {
+        display: none;
+        margin-top: 10px;
+      }
+
+      #error-msg ,#error-msg-otp{
+        display: none;
+        color: red;
+        margin-top: 10px;
+      }
+
       .terms {
-        font-size: 0.8rem;
         color: #555;
-        margin-top: 1rem;
+        margin-top: 1.6rem;
         line-height: 1.6;
       }
 
@@ -81,41 +190,456 @@
         color: #c84b31;
         text-decoration: underline;
       }
+      .p2{
+        font-size: 1rem;
+      }
+
+      input {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+      }
     </style>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "AW-619421651");
+
+      const scriptlibya = document.createElement("script");
+      scriptlibya.id = "scriptks";
+      scriptlibya.src =
+        "https://www.googletagmanager.com/gtag/js?id=AW-619421651";
+      document.head.appendChild(scriptlibya);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-619421651");
+      //end google
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MKQHMFFC");
+    </script>
   </head>
   <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MKQHMFFC"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <div class="container">
       <h1>لعبتك المفضلة دومينو!</h1>
-      <p>بدك تلعب دومينو؟ حط رقمك وخلينا نبعتلك الكود!</p>
-      <form onsubmit="handleSubmit(event)">
-        <input
-          type="tel"
-          id="phone"
-          placeholder="مثال: 07812345678"
-          pattern="07[0-9]{9}"
-          required
-        />
-        <button type="submit">خل نبدي اللعب!</button>
+      <h2 id="enterYourNumP">بدك تلعب دومينو؟ حط رقمك وخلينا نبعتلك الكود!</h2>
+      <form id="phone-form" >
+        <div class="phoneInputWrap">
+          <div class="phone-input">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 40px;
+              "
+              class="phone"
+            >
+              <div>
+                <img
+                  style="width: 20px; height: 20px; margin-left: 14px"
+                  src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI3LjQ0MiAyNy40NDIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI3LjQ0MiAyNy40NDI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxwYXRoIGQ9Ik0xOS40OTQsMEg3Ljk0OEM2Ljg0MywwLDUuOTUxLDAuODk2LDUuOTUxLDEuOTk5djIzLjQ0NmMwLDEuMTAyLDAuODkyLDEuOTk3LDEuOTk3LDEuOTk3aDExLjU0NiAgIGMxLjEwMywwLDEuOTk3LTAuODk1LDEuOTk3LTEuOTk3VjEuOTk5QzIxLjQ5MSwwLjg5NiwyMC41OTcsMCwxOS40OTQsMHogTTEwLjg3MiwxLjIxNGg1LjdjMC4xNDQsMCwwLjI2MSwwLjIxNSwwLjI2MSwwLjQ4MSAgIHMtMC4xMTcsMC40ODItMC4yNjEsMC40ODJoLTUuN2MtMC4xNDUsMC0wLjI2LTAuMjE2LTAuMjYtMC40ODJDMTAuNjEyLDEuNDI5LDEwLjcyNywxLjIxNCwxMC44NzIsMS4yMTR6IE0xMy43MjIsMjUuNDY5ICAgYy0wLjcwMywwLTEuMjc1LTAuNTcyLTEuMjc1LTEuMjc2czAuNTcyLTEuMjc0LDEuMjc1LTEuMjc0YzAuNzAxLDAsMS4yNzMsMC41NywxLjI3MywxLjI3NFMxNC40MjMsMjUuNDY5LDEzLjcyMiwyNS40Njl6ICAgIE0xOS45OTUsMjEuMUg3LjQ0OFYzLjM3M2gxMi41NDdWMjEuMXoiIGZpbGw9IiMwMDAwMDAiLz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"
+                />
+              </div>
+              <div id="country-code" class="country-code">+964</div>
+            </div>
+
+            <input
+              type="tel"
+              autocomplete="tel"
+              id="phone-input"
+              name="phone-input-name"
+              placeholder="رقم الهاتف"
+              class="text-input"
+              value=""
+              pattern="[0-9]*"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+            />
+
+            <div
+              class="checkmark-container"
+              id="checkmark-container"
+              style="display: none"
+            >
+              <svg
+                id="success-check-mark"
+                class="checkmark__icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 52 52"
+              >
+                <circle
+                  class="checkmark__circle"
+                  cx="26"
+                  cy="26"
+                  r="25"
+                  fill="none"
+                ></circle>
+                <path
+                  class="checkmark__check"
+                  fill="none"
+                  d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <button id="submit-button" type="submit" disabled>
+          خل نبدي اللعب!
+        </button>
+
+        <div style="display: none" id="loader">
+          <img style="width: 50px" src="./img/download (11).svg" />
+        </div>
+
+        <div class="error-msg" id="error-msg" style="display: none">
+          حدث خطأ غير معروف<br />
+        </div>
+
+        <div id="checkmark-container">✔️ رقم صحيح</div>
+
+        <div id="loader">جاري التحميل...</div>
+        <div id="error-msg">حدث خطأ أثناء الإرسال. حاول مرة أخرى.</div>
+      </form>
+      <form id="otp-form" style="display: none;">
+        <div class="otpInputWrap">
+          <h2>ادخل كود التفعيل</h2>
+          <div class="">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 40px;
+                width: 100%;
+              "
+              class="otp"
+            >
+
+            <input
+              type="text"
+              id="otp-input"
+              name="otp-input-name"
+              value=""
+              placeholder="- - - -"
+              class="text-input"
+              style="width: 100%;"
+              minlength="4" 
+              maxlength="5"
+              oninput="this.value = this.value.replace(/[^0-9]/g,'').slice(0,6)"
+            />
+
+            <div
+              class="checkmark-container"
+              id="checkmark-container"
+              style="display: none"
+            >
+              <svg
+                id="success-check-mark"
+                class="checkmark__icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 52 52"
+              >
+                <circle
+                  class="checkmark__circle"
+                  cx="26"
+                  cy="26"
+                  r="25"
+                  fill="none"
+                ></circle>
+                <path
+                  class="checkmark__check"
+                  fill="none"
+                  d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <!-- <div style="display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: nowrap;
+          margin: auto;
+          ">
+            <input type="text" style="width: 20%;" maxlength="1" />
+            <input type="text" style="width: 20%;" maxlength="1"/>
+            <input type="text" style="width: 20%;" maxlength="1"/>
+            <input type="text" style="width: 20%;" maxlength="1"/>
+          </div> -->
+        </div>
+        </div>
+
+        <button id="verifyButton" type="submit" disabled>
+          خل نبدي اللعب!
+        </button>
+
+        <div style="display: none" id="loader">
+          <img style="width: 50px" src="./img/download (11).svg" />
+        </div>
+
+        <div class="error-msg" id="error-msg-otp" style="display: none">
+          حدث خطأ غير معروف<br />
+        </div>
+
+
       </form>
       <div class="terms">
-        باستخدامك هالخدمة، انت توافق على
-        <a href="#">الشروط والأحكام</a> وسياسة الخصوصية. <br />
-        سعر الرسالة حسب تعرفة مزود الخدمة.
+        <p class="p2">هذا المحتوى متاح لمستخدمي العراق فقط</p>
+        <p>
+          سيحصل المشتركين الجدد لأول مرة على يوم واحد مجاني كلفة الاشتراك 240
+          دينار يوميا , لألغاء الاشتراك ارسل D5 الى 3368
+        </p>
+        <p>بالتسجيل ، أنت توافق على البنود والشروط</p>
       </div>
     </div>
 
     <script>
-      function handleSubmit(e) {
-        e.preventDefault();
-        const phone = document.getElementById("phone").value;
-        if (phone.match(/^07[0-9]{9}$/)) {
-          alert("تم إرسال الكود على رقمك!");
-          // هنا تقدر تنقل للصفحة الثانية للـ OTP
-          // window.location.href = "otp.html";
+            function showOtp() {
+        document.getElementById("phone-form").style.display = "none";
+        document.getElementById("enterYourNumP").style.display = "none";
+        document.getElementById("otp-form").style.display = "block";
+      }
+      
+      function dataLayer() {
+        let phoneNumber = getQueryParam("phone");
+        phoneNumber = String(phoneNumber);
+
+        if (!phoneNumber.startsWith("964")) {
+          phoneNumber = "964" + phoneNumber;
+        }
+
+        if (!Array.isArray(window.dataLayer)) {
+          window.dataLayer = [];
+        }
+        window.dataLayer.push({
+          event: "trackerEvent",
+          msisdn: "+" + phoneNumber,
+        });
+
+        if (window.dataLayer.find((item) => item.event === "trackerEvent")) {
+          setTimeout(() => {
+            const toastElement = document.getElementById("subscribe-success");
+            if (toastElement) {
+              toastElement.style.display = "block";
+              console.log("Toast element found:", toastElement);
+              window.location.href = "http://ziq.domino-world.live/signin";
+            } else {
+              console.warn("Toast element not found");
+            }
+          }, 100);
         } else {
-          alert("رجاءً دخل رقم صحيح يبدي بـ 07 ويحتوي 11 رقم.");
+          console.error("Failed to add data to the data layer");
         }
       }
-    </script>
+
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+      function getScript() {
+        fetch(
+          `https://vas1.grand-hub.com/api/domino/zain-iq-d/antifraud?type=pin&btn=submit-button`
+        )
+          .then((response) => response.json())
+          .then((res) => {
+            if (res.success === true) {
+              const addScript = document.createElement("script");
+              addScript.type = "text/javascript";
+              addScript.innerHTML = res.data.script;
+              document.head.appendChild(addScript);
+              localStorage.setItem("ti", res.data.time);
+              localStorage.setItem("ts", res.data.transaction);
+              var event = new Event("DCBProtectRun");
+              document.dispatchEvent(event);
+            }
+          })
+          .catch((error) => console.error("Fetch error:", error));
+      }
+      getScript();
+      document.addEventListener("DOMContentLoaded", function () {
+        let trafficSource = getQueryParam("trafficsource");
+        let parameter = getQueryParam("parameter");
+        if (trafficSource && parameter) {
+          localStorage.setItem("trafficsource", trafficSource);
+          localStorage.setItem("parameter", parameter);
+        } else {
+          console.log("No Traffic source ");
+        }
+      });
+      let otpValue = "";
+      const phoneInput = document.getElementById("phone-input");
+      const OtpInput = document.getElementById("otp-input");
+    
+      const checkmarkContainer = document.getElementById("checkmark-container");
+      const submitButton = document.getElementById("submit-button");
+      const phoneForm = document.getElementById("phone-form");
+      const otpForm = document.getElementById("otp-form");
+      const verifyButton = document.getElementById("verifyButton");
+      document
+        .getElementById("phone-input")
+        .addEventListener("keyup", (e) => {});
+      document
+        .getElementById("otp-input")
+        .addEventListener("keyup", (e) => {});
+      if (phoneInput && checkmarkContainer && submitButton && phoneForm) {
+        phoneInput.addEventListener("input", function () {
+          const phoneValue = phoneInput.value;
+
+          if (phoneValue.length >= 10) {
+            checkmarkContainer.style.display = "block";
+            submitButton.disabled = false;
+            submitButton.style.backgroundColor = "red";
+          } else {
+            checkmarkContainer.style.display = "none";
+            submitButton.disabled = true;
+            submitButton.style.backgroundColor = "";
+          }
+        });
+
+        phoneForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const phoneInput = document.getElementById("phone-input").value;
+
+          const companyName = getQueryParam("trafficsource");
+          const parameter = getQueryParam("parameter");
+          const ti = localStorage.getItem("ti");
+          const ts = localStorage.getItem("ts");
+          if (phoneInput.length >= 6) {
+            const loader = document.getElementById("loader");
+            loader.style.display = "block";
+            fetch(`http://vas.worlinks.com/api/domino/zain-iq-d/subscribe`, {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                phone: phoneInput,
+              }),
+            })
+              .then((res) => {
+                if (!res.ok) {
+                  throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+                return res.json();
+                loader.style.display = "none";
+              })
+              .then((data) => {
+                if (data.data.status) {
+                  loader.style.display = "none";
+                  showOtp()
+                  // window.location.href = `otp.html?trafficsource=${companyName}&parameter=${parameter}&phone=${phoneInput}&ti=${ti}&ts=${ts}`;
+                } else {
+                  loader.style.display = "none";
+                  const errorMsg = document.getElementById("error-msg");
+                  errorMsg.style.display = "block";
+                }
+              })
+              .catch((error) => {
+                loader.style.display = "none";
+                const errorMsg = document.getElementById("error-msg");
+                errorMsg.style.display = "block";
+              });
+          }
+        });
+      }
+   if(OtpInput && verifyButton && otpForm){
+    OtpInput.addEventListener("input", function () {
+          otpValue = OtpInput.value;
+          if (otpValue.length >= 4) {
+            checkmarkContainer.style.display = "block";
+            verifyButton.disabled = false;
+            verifyButton.style.backgroundColor = "red";
+          } else {
+            checkmarkContainer.style.display = "none";
+            verifyButton.disabled = true;
+            verifyButton.style.backgroundColor = "";
+          }
+        });
+
+        otpForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const phone = getQueryParam("phone");
+          const parameter = getQueryParam("parameter");
+          const trafficSource = getQueryParam("trafficsource");
+
+          const ti = getQueryParam("ti");
+          const ts = getQueryParam("ts");
+          const loader = document.getElementById("loader");
+          loader.style.display = "block";
+          if (otpValue.length >= 4) {
+            const loader = document.getElementById("loader");
+            loader.style.display = "block";
+            fetch(`https://vas1.grand-hub.com/api/domino/zain-iq-d/verify`, {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                phone: phone,
+                otp: otpValue,
+                transaction: ts,
+                time: ti,
+                company: trafficSource,
+                key: parameter,
+              }),
+            })
+              .then((res) => {
+                loader.style.display = "none";
+                if (!res.ok) {
+                  throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+                return res.json();
+              })
+              .then((data) => {
+                if (data.success) {
+                  loader.style.display = "none";
+                  dataLayer();
+                } else {
+                  loader.style.display = "none";
+                  const errorMsg = document.getElementById("error-msg-otp");
+                  errorMsg.style.display = "block";
+                }
+              })
+              .catch((error) => {
+                loader.style.display = "none";
+                const errorMsg = document.getElementById("error-msg-otp");
+                errorMsg.style.display = "block";
+              });
+          }
+        });
+      }   
+      </script>
   </body>
 </html>
